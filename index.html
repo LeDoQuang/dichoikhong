@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đi chơi</title>
+    <link rel="shortcut icon" href="rose.ico">
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div>
+        <h1 class="header_text" id="playText">Đi chơi không Chi 🥹</h1>
+        <h1 class="header_text hidden" id="yayText">Yeeeyyyy!!</h1>
+    </div>
+    <div class="gif_container">
+        <img id="playImage" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
+        <img class="hidden" id="yayImage" src="https://media0.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif" alt="Cute animated illustration">
+    </div>
+    <div class="buttons">
+        <button class="btn" id="yesButton" onclick="nextPage()">Cóoooo</button>
+        <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">Hông đi đâu</button>
+        <audio id="music" src="abc.mp3"></audio>
+        <script>
+            function nextPage() {
+                document.getElementById('playText').classList.add('hidden');
+                document.getElementById('yayText').classList.remove('hidden');
+                document.getElementById('playImage').classList.add('hidden');
+                document.getElementById('yayImage').classList.remove('hidden');
+                document.getElementById('yesButton').style.display = 'none';
+                document.getElementById('noButton').style.display = 'none'; // Ẩn nút "Hông đi đâu"
+                
+                // Mở nhạc
+                var audio = document.getElementById('music');
+                audio.play();
+            }
+
+            function moveButton() {
+                var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth) - 85;
+                var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight) - 48;
+                document.getElementById('noButton').style.left = `${x}px`;
+                document.getElementById('noButton').style.top = `${y}px`;
+            }
+        </script>
+    </div>
+</div>
+
+</body>
+</html>
